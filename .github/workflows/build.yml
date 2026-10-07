@@ -25,11 +25,11 @@ jobs:
         sed -i 's/\r$//' gradlew
 
     - name: Build Debug APK
-      run: ./gradlew assembleDebug --stacktrace --info
+      run: ./gradlew assemble --stacktrace
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
         name: HighlightCam-App
-        path: "app/build/outputs/apk/debug/*.apk"
+        path: "**/build/outputs/apk/**/*.apk"
         if-no-files-found: error
