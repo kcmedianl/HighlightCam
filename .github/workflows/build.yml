@@ -24,13 +24,12 @@ jobs:
       with:
         validate-wrappers: false
 
-    - name: Build APK in subfolder
-      working-directory: HighlightCam-main
+    - name: Build APK
       run: gradle :app:assembleDebug --stacktrace
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
         name: HighlightCam-App
-        path: "HighlightCam-main/app/build/outputs/apk/debug/*.apk"
+        path: "app/build/outputs/apk/debug/*.apk"
         if-no-files-found: error
